@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+               sh 'rm -rf $PWD/*'
                sh 'git clone git@github.com:adisharma96/weather-app.git'
             }
         }
