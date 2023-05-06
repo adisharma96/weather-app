@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy Container') {
              steps {
                  sh 'sudo docker pull adisharma96/weather-app:jenkins'
-                 sh 'a=$(docker image ls | awk '{print $3}' | awk 'NR==2')'
+                 sh  a=$(docker image ls | awk '{print $3}' | awk 'NR==2')
                  sh 'sudo docker run -itd --name weather-app --rm -p 8082:3000 $a'
                  sh 'sudo docker container ls'
              }
