@@ -8,9 +8,11 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-               sh 'sudo docker build -t adisharma96/weather-app:jenkins .'
+                script {
+                    docker.build("adisharma96/weather-app:jenkins")
+                }
             }
-        }
+       }
         stage('Push Image') {
             steps {
                withCredentials([string(credentialsId: 'ce52f7d9-4200-4e0b-b959-9673256d24b6', variable: 'dockerhubpass')]) {
