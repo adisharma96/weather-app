@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-               sh 'git clone git@github.com:adisharma96/weather-app.git'
+               checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/adisharma96/weather-app/']])
             }
         }
         stage('Build Image') {
