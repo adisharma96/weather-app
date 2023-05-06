@@ -25,8 +25,10 @@ pipeline {
         stage('Deploy Container') {
              steps {
                  sh 'sudo docker pull adisharma96/weather-app:jenkins'
+                 sh 'sudo docker container rm -f weather-app'
                  sh 'sudo docker run -itd --name weather-app --rm -p 8082:3000 adisharma96/weather-app:jenkins'
                  sh 'sudo docker container ls'
+                 sh 'hostname'
              }
         }
     }
