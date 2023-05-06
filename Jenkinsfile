@@ -29,6 +29,7 @@ pipeline {
                  sh 'sudo docker run -itd --name weather-app --rm -p 8082:3000 adisharma96/weather-app:jenkins'
                  sh 'sudo docker container ls'
                  sh 'hostname'
+                 sh 'docker port weather-app'
              }
         }
     }
